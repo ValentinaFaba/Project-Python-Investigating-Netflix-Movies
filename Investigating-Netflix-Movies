@@ -1,32 +1,37 @@
+# Importing pandas and matplotlib
 import pandas as pd
- import matplotlib.pyplot as plt
- 
- netflix_df = pd.read_csv("netflix_data.csv", index_col= 0)
- 
- 
- #1.
+import matplotlib.pyplot as plt
+
+# Read in the Netflix CSV as a DataFrame
+netflix_df = pd.read_csv("netflix_data.csv", index_col= 0)
+
+#1_What was the most frequent movie duration in the 1990s? 
+# Subset the DataFrame for type "Movie"
  subnettype = netflix_df[netflix_df["type"] == "Movie"]
+# Filter the to keep only movies released between the 1990 and 2000
  moviesnin = subnettype[(subnettype["release_year"] >= 1990) & (subnettype["release_year"] < 2000)]
  
+# Visualize the duration column of your filtered data to see the distribution of movie durations
+# See which bar is the highest and save the duration value 
  movie_max = moviesnin.loc[moviesnin["duration"].idxmax()]
  movie_max_duration_title = movie_max["title"]
  duration = movie_max["duration"]
- print(duration, movie_max_duration_title)
- 
+ print(duration, movie_max_duration_title).
  plt.hist(moviesnin["duration"])
  plt.title("Netflix Movies 90'")
  plt.xlabel("Duration")
  plt.ylabel("Number of Movies")
  plt.show()
  
- #2.
+# 2_A movie is considered short if it is less than 90 minutes. Count the number of short action movies released in the 1990s 
+# Filter the data again to keep only the Action movies
  action_movies_1990s = moviesnin[moviesnin["genre"] == "Action"]
+# Use a for loop and a counter to count how many short action movies there were in the 1990s 
+# Iterate over the labels and rows of the DataFrame and check if the duration is less than 90, if it is, add 1 to the counter, if it isn't, the counter should remain the same
  short_movie_count = 0
- 
  for label, row in action_movies_1990s.iterrows() :
      if row["duration"] < 90 :
          short_movie_count = short_movie_count + 1
      else:
          short_movie_count = short_movie_count
- 
- print(short_movie_count)
+  print(short_movie_count)
