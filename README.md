@@ -1,6 +1,4 @@
-**Netflix** what started in 1997 as a DVD rental service has since exploded into one of the largest entertainment and media companies.
-Simulation: It's a project for a production company that specializes in nostalgic styles. The company wants to research movies released in the 1990s and perform exploratory data analysis to better understand this awesome movie decade!
-
+Simulation: Netflix, what began in 1997 as a DVD rental service has since transformed into one of the largest entertainment and media companies in the world. This project focuses on a production company that specializes in nostalgic content, aiming to research movies released in the 1990s. Through exploratory data analysis, they seek to gain deeper insights into this iconic decade of film!
 
 ## The data
 ### **netflix_data.csv**
